@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kodelås</title>
+</head>
+    <style>
+        button{
+            color: red;
+            background-color: lightgreen;
+            font-size: large;
+            font-weight: bold;
+        }
+        .sinEgen{
+            color: black;
+            background-color: rgb(20, 181, 255);
+        }
+        .sinEgen2{
+            color: rgb(238, 255, 0);
+            background-color: rgb(255, 20, 20);
+        }
+
+
+        #kode{
+            font-weight: bolder;
+        }
+     
+        
+    </style>
+        
+<body>
+
+    <div id="app"></div>
+
+    <script>
+
+        //model
+        let kode = '';
+        let fasit = 1234;
+        let Riktig = '';
+
+        //view
+        show();
+        function show() {
+            document.getElementById('app').innerHTML = `
+            <h2>Ferdighet 4 - Variabel utenfor funksjon og innenfor funksjon, samt sette sammen tekst av flere deler</h2>
+            <p>Lag en “kodelås” med 9 knapper. 
+                <br>Vi tenker oss at for å låse opp må man trykke på knapp 3, så knapp 8, så knapp 1 og så knapp 2.
+                <br>Vi får ikke gjort dette helt ferdig ennå, for vi har ikke lært if-setninger, men vis i en egen div alle tallene som er trykket på så langt. 
+                <br>Det vil si at om man har trykket først 1, så 2 og så 3, skal teksten "1-2-3" vises i en div på skjermen.  </p>
+                
+                <br>
+                </br><b>Foreløpig litt problematisk med kode som blir generert med "0"<b> 
+                <br>
+                </br>
+          
+               
+            <button onclick="Trykk(this.innerHTML)">1</button>
+            <button onclick="Trykk(this.innerHTML)">2</button>
+            <button onclick="Trykk(this.innerHTML)">3</button></br> 
+            <button onclick="Trykk(this.innerHTML)">4</button>
+            <button onclick="Trykk(this.innerHTML)">5</button> 
+            <button onclick="Trykk(this.innerHTML)">6</button></br> 
+            <button onclick="Trykk(this.innerHTML)">7</button> 
+            <button onclick="Trykk(this.innerHTML)">8</button>
+            <button onclick="Trykk(this.innerHTML)">9</button> 
+
+            <div id="info">Finn riktig kode</div>
+            <div id="kode">${kode}</div>
+            <hr>
+            
+            <button type="button" class="sinEgen" onclick="låsOpp()">Lås opp!</button>
+                <div id="Riktig">${Riktig}</div>
+            <br>
+            </br>
+            <button onclick="PrøvIgjen();">Prøv Igjen</button>
+            <br>
+            </br>
+            <button type="button" class="sinEgen2" onclick="Sjekk()">Fasit?</button>
+                   
+        `;    
+        }
+
+        // controller
+            function Trykk(clicked) {
+            kode += clicked;  
+            if (kode == fasit) Riktig = "Wooho!"; 
+            show();
+        }  
+
+        function låsOpp() {
+            if (kode == fasit) Riktig = "Wooho!"; 
+            else Riktig = "Prøv igjen!";
+            show();
+        }
+        function PrøvIgjen(){
+            kode = '';
+            Riktig = '';
+            fasit = 1000 + Math.ceil(Math.random() * 8999);
+            show();
+        }
+        function Sjekk(){
+            Riktig = fasit
+            show();
+        }
+
+
+
+
+    </script>
+
+</body>
+</html>
