@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Kodelås</title>
+</head>
+    <style>
+        button{
+            color: red;
+            background-color: lightgreen;
+            font-size: large;
+            font-weight: bold;
+        }
+
+        #kode{
+            font-weight: bolder;
+        }
+    </style>
+
+<body>
+    <h2>Ferdighet 4 - Variabel utenfor funksjon og innenfor funksjon, samt sette sammen tekst av flere deler</h2>
+    <p>Lag en “kodelås” med 9 knapper. 
+        <br>Vi tenker oss at for å låse opp må man trykke på knapp 3, så knapp 8, så knapp 1 og så knapp 2.
+        <br>Vi får ikke gjort dette helt ferdig ennå, for vi har ikke lært if-setninger, men vis i en egen div alle tallene som er trykket på så langt. 
+        <br>Det vil si at om man har trykket først 1, så 2 og så 3, skal teksten "1-2-3" vises i en div på skjermen.  </p>
+    
+    
+    <button onclick="Trykk(this)">1</button>
+    <button onclick="Trykk(this)">2</button>
+    <button onclick="Trykk(this)">3</button> 
+    <button onclick="Trykk(this)">4</button>
+    <button onclick="Trykk(this)">5</button> 
+    <button onclick="Trykk(this)">6</button>
+    <button onclick="Trykk(this)">7</button> 
+    <button onclick="Trykk(this)">8</button>
+    <button onclick="Trykk(this)">9</button> 
+
+    <div id="info">Finn riktig kode</div>
+    <div id="kode"></div>
+    <hr>
+    <button onclick="window.location.reload();">RESET</button>
+
+    <script>
+        var kode = document.getElementById("kode");
+        var svar = '';
+
+
+        function Trykk(clicked){
+            svar += clicked.innerHTML  
+              kode.innerHTML = svar;
+              
+        }  
+
+        // Trykk this starter funksjon Trykk. 
+        // Clicked er bare en beskrivelse for å hente innerHTML fra knappene >her<
+        // variabel svar er kun et mellomledd for å legge på nye clicks. ref +=
+        
+
+
+    </script>
+
+</body>
+</html>
